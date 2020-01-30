@@ -1,0 +1,28 @@
+{% include 'header' %}
+
+import UIKit
+
+class {{ module_info.name }}ViewController: UIViewController {
+
+    var presenter: {{ module_info.name }}ViewToPresenterProtocol?
+    
+    // some outlet here 
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        presenter?.updateView();
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning();
+    }
+}
+
+extension {{ module_info.name }}ViewController: {{ module_info.name }}PresenterToViewProtocol {
+
+}

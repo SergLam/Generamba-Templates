@@ -1,0 +1,30 @@
+{% include 'header' %}
+
+import UIKit
+
+protocol {{ module_info.name }}PresenterToViewProtocol: class{
+    //some func
+}
+
+protocol {{ module_info.name }}InterectorToPresenterProtocol: class{
+    //some func
+}
+
+protocol {{ module_info.name }}PresenterToInterectorProtocol: class{
+    var presenter: {{ module_info.name }}InterectorToPresenterProtocol? {get set} ;
+
+    //some func
+}
+
+protocol {{ module_info.name }}ViewToPresenterProtocol: class{
+    var view: {{ module_info.name }}PresenterToViewProtocol? {get set};
+    var interector: {{ module_info.name }}PresenterToInterectorProtocol? {get set};
+    var router: {{ module_info.name }}PresenterToRouterProtocol? {get set}
+
+    //some func
+    func updateView();
+}
+
+protocol {{ module_info.name }}PresenterToRouterProtocol: class{
+    static func createModule() -> UIViewController;
+}

@@ -1,0 +1,42 @@
+# Template information section
+name: "viper-swift"
+summary: "VIPER module template."
+author: "Alexander Sarkisov"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# Assembly layer
+- {name: Assembly.swift, path: Code/Assembly/assembly.swift.liquid}
+
+# View layer
+- {name: ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+
+# Interactor layer
+- {name: Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+
+# Router layer
+- {name: Router.swift, path: Code/Router/router.swift.liquid}
+
+# The declarations for test files
+
+test_files:
+# Assembly tests
+- {name: Assembly_Testable.swift, path: Tests/Assembly/assembly_testable.swift.liquid}
+
+# View tests
+- {name: ViewControllerTests.swift, path: Tests/View/view_tests.swift.liquid}
+
+# Presenter tests
+- {name: PresenterTests.swift, path: Tests/Presenter/presenter_tests.swift.liquid}
+
+# Interactor tests
+- {name: InteractorTests.swift, path: Tests/Interactor/interactor_tests.swift.liquid}
+
+# Router tests
+- {name: RouterTests.m, path: Tests/Router/router_tests.swift.liquid}

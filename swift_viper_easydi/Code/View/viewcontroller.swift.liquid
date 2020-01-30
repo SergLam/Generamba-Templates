@@ -1,0 +1,28 @@
+{% include 'header' %}
+
+import UIKit
+import Reusable
+
+// MARK: - {{ prefix }}{{ module_info.name }}ViewController
+
+final class {{ prefix }}{{ module_info.name }}ViewController: UIViewController, StoryboardSceneBased {
+
+	static let sceneStoryboard = UIStoryboard(name: "{{ module_info.name }}Module", bundle: Bundle(for: {{ module_info.name }}ViewController.self))
+
+    var output: {{ module_info.name }}ViewOutput!
+
+    // MARK: Life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        output.viewIsReady()
+    }
+}
+
+// MARK: - {{ prefix }}{{ module_info.name }}ViewInput
+
+extension {{ prefix }}{{ module_info.name }}ViewController: {{ prefix }}{{ module_info.name }}ViewInput {
+    
+    func setupInitialState() {
+        
+    }
+}

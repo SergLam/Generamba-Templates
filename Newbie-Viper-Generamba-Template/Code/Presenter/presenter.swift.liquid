@@ -1,0 +1,23 @@
+{% include 'header' %}
+
+import UIKit
+
+class {{ module_info.name }}Presenter: {{ module_info.name }}ViewToPresenterProtocol {
+    
+    var view: {{ module_info.name }}PresenterToViewProtocol?;
+    var interector: {{ module_info.name }}PresenterToInterectorProtocol?;
+    var router: {{ module_info.name }}PresenterToRouterProtocol?
+    
+    // write your function here
+    func updateView() {
+        
+    }
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}InterectorToPresenterProtocol {
+	
+	// write your function here
+	// tell the presenter when the interactor finish fetch data from api
+	// or if there are some errors
+	
+}

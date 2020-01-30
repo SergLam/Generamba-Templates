@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+#import <UIKit/UIKit.h>
+#import "AGSViperRouting.h"
+
+@interface {{ prefix }}{{ module_info.name }}Assembly : NSObject
+
++ (UIViewController *)createModule:(AGSViperModuleConfigureBlock)configure;
+
+@end

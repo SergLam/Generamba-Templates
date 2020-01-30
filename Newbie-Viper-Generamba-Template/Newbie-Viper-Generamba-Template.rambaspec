@@ -1,0 +1,30 @@
+# Template information section
+name: Newbie-Viper-Generamba-Template
+summary: Generamba Templates for Viper Newbies
+author: Elbert Valdian
+version: 0.1.0
+license: It's a shared catalog of templates for Generamba code generator.
+
+# The declarations for code files
+code_files:
+# Protocol layer
+- {name: Protocol/Protocol.swift, path: Code/Protocol/protocol.swift.liquid}
+
+# View layer
+- {name: View/ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
+
+# Presenter layer
+- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+
+# Interactor layer
+- {name: Interactor/Interactor.swift, path: Code/Interactor/interactor.swift.liquid}
+
+# Router layer
+- {name: Router/Router.swift, path: Code/Router/router.swift.liquid}
+
+# The declarations for test files
+test_files:
+- {name: Service/ServiceTests.m, path: Tests/Service/service_tests.m.liquid}
+
+# Template dependencies
+dependencies:

@@ -1,0 +1,14 @@
+{% include 'header' %}
+
+import UIKit
+
+// MARK: Input
+protocol {{ module_info.name }}RouterInput: class {
+
+}
+
+// MARK: - Router
+final class {{ module_info.name }}Router: {{ module_info.name }}RouterInput {
+
+    weak var viewController: {{ module_info.name }}ViewController!
+}

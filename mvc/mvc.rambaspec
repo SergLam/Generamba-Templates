@@ -1,0 +1,24 @@
+# Template information section
+name: "mvc-template"
+summary: "Simple MVC template."
+author: "Alexander Sarkisov"
+version: "1.0"
+license: "MIT"
+
+# The declarations for code files
+code_files:
+
+# Controller layer
+- {name: Controller/ViewController.h, path: Code/Controller/viewcontroller.h.liquid}
+- {name: Controller/ViewController.m, path: Code/Controller/viewcontroller.m.liquid}
+
+- {name: Controller/Routing/ViewController+Routing.h, path: Code/Controller/routing.h.liquid}
+- {name: Controller/Routing/ViewController+Routing.m, path: Code/Controller/routing.m.liquid}
+
+# Model layer
+- {name: Model/Model.h, path: Code/Model/model.h.liquid}
+- {name: Model/Model.m, path: Code/Model/model.m.liquid}
+
+# View layer
+- {name: View/View.h, path: Code/View/view.h.liquid}
+- {name: View/View.m, path: Code/View/view.m.liquid}

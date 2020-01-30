@@ -1,0 +1,10 @@
+{% include 'header' %}
+
+#import <Foundation/Foundation.h>
+#import "AGSViperRouting.h"
+
+@protocol {{ prefix }}{{ module_info.name }}ModuleInput <AGSViperModuleInput>
+
+- (void)configureModule;
+
+@end

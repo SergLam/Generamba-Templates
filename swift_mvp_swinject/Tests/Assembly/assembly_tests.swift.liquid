@@ -1,0 +1,40 @@
+{% include 'header' %}
+
+@testable
+import {{ custom_parameters.project_name }}
+import XCTest
+import Swinject
+
+// MARK: - {{ prefix }}{{ module_info.name }}ModuleAssemblyTest
+
+class {{ prefix }}{{ module_info.name }}ModuleAssemblyTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    func testModuleAssembly() {
+
+        let container = Container()
+        let assembly = {{ prefix }}{{ module_info.name }}ModuleAssembly()
+
+        assembly.assemble(container: container)
+
+        //given
+        let storyboard = SwinjectStoryboard.create(name: "{{ prefix }}{{ module_info.name }}Module", bundle: Bundle(for: {{ prefix }}{{ module_info.name }}ModuleAssemblySpec.self), container: container)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "{{ prefix }}{{ module_info.name }}ViewController") as! {{ prefix }}{{ module_info.name }}ViewController
+
+        //then
+        XCTAssertNotNil(viewController.output, "{{ prefix }}{{ module_info.name }}ViewController is nil after configuration")
+        XCTAssertTrue(viewController.output is {{ prefix }}{{ module_info.name }}Presenter, "output is not {{ prefix }}{{ module_info.name }}Presenter")
+
+        let presenter: {{ prefix }}{{ module_info.name }}Presenter = viewController.output as! {{ prefix }}{{ module_info.name }}Presenter
+        XCTAssertNotNil(presenter.view, "view in {{ prefix }}{{ module_info.name }}Presenter is nil after configuration")
+    }
+}

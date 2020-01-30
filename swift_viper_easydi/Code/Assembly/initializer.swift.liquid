@@ -1,0 +1,15 @@
+{% include 'header' %}
+
+import UIKit
+
+class {{ prefix }}{{ module_info.name }}ModuleInitializer: NSObject {
+
+    //Connect with object on storyboard
+    @IBOutlet weak var {{ module_info.name | downcase }}ViewController: {{ prefix }}{{ module_info.name }}ViewController!
+
+    override func awakeFromNib() {
+    	super.awakeFromNib()
+		  {{ prefix }}{{ module_info.name }}ModuleAssembly.instance().inject(into: {{ module_info.name | downcase }}ViewController)
+    }
+
+}

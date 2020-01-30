@@ -1,0 +1,21 @@
+{% include 'header' %}
+
+import Swinject
+import SwinjectStoryboard
+
+final class {{ prefix }}{{ module_info.name }}ModuleAssembly: Assembly {
+
+    func assemble(container: Container) {
+
+        container.register({{ prefix }}{{ module_info.name }}Presenter.self) { (r, viewController: {{ prefix }}{{ module_info.name }}ViewController) in
+            let presenter = {{ module_info.name }}Presenter()
+            presenter.view = viewController
+            presenter.resolver = r
+            return presenter
+        }
+
+        container.storyboardInitCompleted({{ prefix }}{{ module_info.name }}ViewController.self) { r, viewController in
+            viewController.output = r.resolve({{ prefix }}{{ module_info.name }}Presenter.self, argument: viewController)
+        }
+    }
+}
