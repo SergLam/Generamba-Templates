@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/macos,xcode,swift,objective-c
 
+# Generamba
+TestProject/Generamba
+
 ### macOS ###
 *.DS_Store
 .AppleDouble
