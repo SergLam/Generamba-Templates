@@ -3,16 +3,18 @@
 import SnapKit
 import UIKit
 
-protocol {{ module_info.name }}ViewDelegate: class {
+protocol {{ module_info.name }}CollectionViewDelegate: class {
     
     func didSelect{{ module_info.name }}Item(_ item: {{ custom_parameters.dto }})
 }
 
 final class {{ module_info.name }}CollectionView: UIView {
     
+    weak var delegate: {{ module_info.name }}CollectionViewDelegate?
+
     private let collectionView: UICollectionView
     private let collectionViewLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-    private let collectionController: {{ module_info.name }}CollectionViewController = {{ module_info.name }}CollectionViewController()
+    private let collectionController: {{ module_info.name }}CollectionController = {{ module_info.name }}CollectionController()
     
     override init(frame: CGRect) {
         
@@ -69,11 +71,11 @@ final class {{ module_info.name }}CollectionView: UIView {
     
 }
 
-// MARK: - {{ module_info.name }}CollectionViewControllerDelegate
-extension {{ module_info.name }}CollectionView: {{ module_info.name }}CollectionViewControllerDelegate {
+// MARK: - {{ module_info.name }}CollectionControllerDelegate
+extension {{ module_info.name }}CollectionView: {{ module_info.name }}CollectionControllerDelegate {
     
     func didSelectItem(_ item: {{ custom_parameters.dto }}) {
-        
+        delegate?.didSelect{{ module_info.name }}Item(item)
     }
     
 }
