@@ -21,16 +21,16 @@ final class {{ module_info.name }}VCTableController: NSObject {
 }
 
 // MARK: - UITableViewDataSource
-extension {{ custom_parameters.dto }}VCTableController: UITableViewDataSource {
+extension {{ module_info.name }}VCTableController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier: String = {{ custom_parameters.dto }}TableViewCell.reuseIdentifier
+        let identifier: String = {{ module_info.name }}TableViewCell.reuseIdentifier
         guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier,
-                                                       for: indexPath) as? {{ custom_parameters.dto }}TableViewCell else {
+                                                       for: indexPath) as? {{ module_info.name }}TableViewCell else {
                                                         preconditionFailure("Unable to dequeueReusableCell")
         }
         cell.update(dataSource[indexPath.row])
@@ -40,7 +40,7 @@ extension {{ custom_parameters.dto }}VCTableController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension {{ custom_parameters.dto }}VCTableController: UITableViewDelegate {
+extension {{ module_info.name }}VCTableController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return CGFloat.leastNonzeroMagnitude
@@ -54,7 +54,7 @@ extension {{ custom_parameters.dto }}VCTableController: UITableViewDelegate {
 }
 
 // MARK: - DZNEmptyDataSetSource
-extension {{ custom_parameters.dto }}VCTableController: DZNEmptyDataSetSource {
+extension {{ module_info.name }}VCTableController: DZNEmptyDataSetSource {
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         
@@ -67,7 +67,7 @@ extension {{ custom_parameters.dto }}VCTableController: DZNEmptyDataSetSource {
 }
 
 // MARK: - DZNEmptyDataSetDelegate
-extension {{ custom_parameters.dto }}VCTableController: DZNEmptyDataSetDelegate {
+extension {{ module_info.name }}VCTableController: DZNEmptyDataSetDelegate {
     
     func emptyDataSetShouldBeForced(toDisplay scrollView: UIScrollView!) -> Bool {
         return dataSource.isEmpty
