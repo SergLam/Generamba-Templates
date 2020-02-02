@@ -25,3 +25,4 @@ templates:
 - {name: swifty_viper, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
 - {name: table_view, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
 - {name: collection_view_h, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: collection_view_v, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
