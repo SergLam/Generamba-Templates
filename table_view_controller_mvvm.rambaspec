@@ -10,19 +10,19 @@ license: "MIT"
 code_files:
 
 # View Controller
-- {name: VC.swift,  path: Code/VC.swift.liquid}
+- {name: VC.swift,  path: ./table_view_controller_mvvm/Code/VC.swift.liquid}
 
 # View
-- {name: View.swift,  path: Code/View.swift.liquid}
+- {name: View.swift,  path: ./table_view_controller_mvvm/Code/View.swift.liquid}
 
 # View Model
-- {name: ViewModel.swift,  path: Code/ViewModel.swift.liquid}
+- {name: ViewModel.swift,  path: ./table_view_controller_mvvm/Code/ViewModel.swift.liquid}
 
 # Table Controller
-- {name: ViewTableController.swift, path: Code/ViewTableController.swift.liquid}
+- {name: ViewTableController.swift, path: ./table_view_controller_mvvm/Code/ViewTableController.swift.liquid}
 
 # Table View Cell
-- {name: Cells/TableViewCell.swift, path: Code/Cells/TableViewCell.swift.liquid}
+- {name: Cells/TableViewCell.swift, path: ./table_view_controller_mvvm/Code/Cells/TableViewCell.swift.liquid}
 
 # The declarations for test files
 test_files:
