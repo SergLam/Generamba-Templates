@@ -67,7 +67,7 @@ final class {{ module_info.name }}View: UIView {
 extension {{ module_info.name }}View: {{ module_info.name }}ViewTableControllerDelegate {
     
     func didSelectItem(_ item: {{ custom_parameters.dto }}) {
-        delegate?.didSelectSearchItem(item)
+        delegate?.didSelect{{ module_info.name }}Item(item)
     }
     
 }
