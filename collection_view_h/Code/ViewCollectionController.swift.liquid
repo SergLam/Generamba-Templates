@@ -2,14 +2,14 @@
 
 import UIKit
 
-protocol {{ module_info.name }}ViewCollectionControllerDelegate: class {
+protocol {{ module_info.name }}CollectionControllerDelegate: class {
     
     func didSelectItem(_ item: {{ custom_parameters.dto }})
 }
 
-final class {{ module_info.name }}ViewCollectionController: NSObject {
+final class {{ module_info.name }}CollectionController: NSObject {
     
-    weak var delegate: {{ module_info.name }}ViewCollectionControllerDelegate?
+    weak var delegate: {{ module_info.name }}CollectionControllerDelegate?
     
     private var dataSource: [{{ module_info.name }}CollectionViewCellViewModel] = []
     
