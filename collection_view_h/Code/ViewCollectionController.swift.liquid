@@ -43,7 +43,7 @@ extension {{ module_info.name }}CollectionController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate?.didSelectItem(dataSource[indexPath.row])
+        delegate?.didSelectItem(dataSource[indexPath.row].item)
     }
     
 }

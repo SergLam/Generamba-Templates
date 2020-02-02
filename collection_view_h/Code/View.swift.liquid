@@ -38,7 +38,7 @@ final class {{ module_info.name }}CollectionView: UIView {
     // MARK: - Public functions
     func update(_ items: [{{ custom_parameters.dto }}]) {
         
-        collectionController.update(items)
+        collectionController.updateDataSource(items)
         collectionView.reloadData()
     }
     
