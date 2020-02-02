@@ -3,17 +3,17 @@
 import DZNEmptyDataSet
 import UIKit
 
-protocol {{ module_info.name }}VСDelegate: class {
+protocol {{ module_info.name }}ViewСontrollerDelegate: class {
     
     func didSelect{{ module_info.name }}Item(_ item: {{ custom_parameters.dto }})
 }
 
-final class {{ module_info.name }}VC: UIViewController {
+final class {{ module_info.name }}ViewСontroller: UIViewController {
     
-    weak var delegate: {{ module_info.name }}VCDelegate?
+    weak var delegate: {{ module_info.name }}ViewСontrollerDelegate?
     
     private let contentView: {{ module_info.name }}View = {{ module_info.name }}View()
-    private let tableController: {{ module_info.name }}VCTableController = {{ module_info.name }}VCTableController()
+    private let tableController: {{ module_info.name }}ViewСontrollerTableController = {{ module_info.name }}ViewСontrollerTableController()
     
     private let viewModel: {{ module_info.name }}ViewModel = {{ module_info.name }}ViewModel()
     
@@ -52,7 +52,7 @@ final class {{ module_info.name }}VC: UIViewController {
 }
 
 // MARK: - {{ module_info.name }}ViewModelDelegate
-extension {{ module_info.name }}VC: {{ module_info.name }}ViewModelDelegate {
+extension {{ module_info.name }}ViewСontroller: {{ module_info.name }}ViewModelDelegate {
     
     func didReceiveError(_ error: String) {
         contentView.changeRefreshControlVisibility(isVisible: false)
@@ -62,7 +62,7 @@ extension {{ module_info.name }}VC: {{ module_info.name }}ViewModelDelegate {
 }
 
 // MARK: - {{ module_info.name }}ViewDelegate
-extension {{ module_info.name }}VC: {{ module_info.name }}ViewDelegate {
+extension {{ module_info.name }}ViewСontroller: {{ module_info.name }}ViewDelegate {
     
     func onPullToRefreshAction() {
         contentView.changeRefreshControlVisibility(isVisible: true)
@@ -72,7 +72,7 @@ extension {{ module_info.name }}VC: {{ module_info.name }}ViewDelegate {
 }
 
 // MARK: - {{ module_info.name }}ViewDelegate
-extension {{ module_info.name }}VC: {{ module_info.name }}VCTableControllerDelegate {
+extension {{ module_info.name }}ViewСontroller: {{ module_info.name }}VCTableControllerDelegate {
     
     func didSelectItem(_ item: {{ custom_parameters.dto }}) {
         delegate?.didSelect{{ module_info.name }}Item(item)

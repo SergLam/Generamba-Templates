@@ -10,7 +10,7 @@ license: "MIT"
 code_files:
 
 # View Controller
-- {name: VC.swift,  path: Code/VC.swift.liquid}
+- {name: ViewСontroller.swift,  path: Code/ViewСontroller.swift.liquid}
 
 # View
 - {name: View.swift,  path: Code/View.swift.liquid}
