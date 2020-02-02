@@ -22,6 +22,6 @@ podfile_path: Podfile
 catalogs:
 - 'https://github.com/SergLam/Generamba-Templates'
 templates:
-- {name: swifty_viper, git: 'https://github.com/SergLam/Generamba-Templates/tree', branch: 'master'}
+- {name: swifty_viper, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
 - {name: table_view, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
 - {name: collection_view_h, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
