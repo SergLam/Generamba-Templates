@@ -1,5 +1,5 @@
 # Template information section
-name: "table_view"
+name: "z_table_view"
 summary: "Table view with encapsulated delegate + data source logic"
 author: "Sergey Lamcev"
 version: "0.1.0"
@@ -9,13 +9,13 @@ license: "MIT"
 
 code_files:
 # View
-- {name: View.swift,  path: Code/View.swift.liquid}
+- {name: View.swift,  path: z_table_view/Code/View.swift.liquid}
 
 # Table Controller
-- {name: ViewTableController.swift, path: Code/ViewTableController.swift.liquid}
+- {name: ViewTableController.swift, path: z_table_view/Code/ViewTableController.swift.liquid}
 
 # Table View Cell
-- {name: Cells/TableViewCell.swift, path: Code/Cells/TableViewCell.swift.liquid}
+- {name: Cells/TableViewCell.swift, path: z_table_view/Code/Cells/TableViewCell.swift.liquid}
 
 # The declarations for test files
 test_files:

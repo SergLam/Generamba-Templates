@@ -1,4 +1,0 @@
-Example launch:
-
-
-generamba gen PhotoSelection photo_selection

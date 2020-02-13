@@ -1,5 +1,5 @@
 # Template information section
-name: "slide_nav_vc"
+name: "z_slide_nav_vc"
 summary: "Navigation controller with swipe back for half screen area (e.g. WhatsApp or Telegram)"
 author: "Sergey Lamcev"
 version: "0.1.0"

@@ -1,4 +1,0 @@
-Example launch:
-
-
-generamba gen SwipeBack slide_nav_vc

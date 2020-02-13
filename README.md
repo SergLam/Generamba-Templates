@@ -9,9 +9,17 @@ Generamba templates collection.
 ### Templates
 catalogs:
 - 'https://github.com/SergLam/Generamba-Templates'
+
 templates:
-- {name: swifty_viper, git: 'https://github.com/SergLam/Generamba-Templates/tree', branch: 'master'}
-- {name: table_view, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: z_swifty_viper, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+
+- {name: z_table_view, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: z_collection_view_h, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: z_collection_view_v, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+
+- {name: z_table_view_controller_mvvm, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: z_photo_selection, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
+- {name: z_slide_nav_vc, git: 'https://github.com/SergLam/Generamba-Templates', branch: 'master'}
 ```
 
 3) Run `generamba template install`. All the templates will be placed in the '/Templates' folder of your current project.
