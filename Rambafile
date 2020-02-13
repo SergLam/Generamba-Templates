@@ -2,18 +2,18 @@
 company: SergLam
 
 ### Xcode project settings
-project_name: ProjectName
-xcodeproj_path: TestProject.xcodeproj
+project_name: <YOUR_PROJECT_NAME>
+xcodeproj_path: <YOUR_PROJECT_NAME>.xcodeproj
 
 ### Code generation settings section
 # The main project target name
-project_target: TestProject
+project_target: <YOUR_MAIN_PROJECT_TARGET_NAME>
 
 # The file path for new modules
-project_file_path: Generamba
+project_file_path: Generated_Code/Modules
 
 # The Xcode group path to new modules
-project_group_path: Generamba
+project_group_path: Generated_Code/Modules
 
 ### Dependencies settings section
 podfile_path: Podfile

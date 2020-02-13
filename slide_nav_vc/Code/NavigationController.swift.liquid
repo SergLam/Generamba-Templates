@@ -14,11 +14,6 @@ final class {{ module_info.name }}NavigationController: UINavigationController {
 
     var shouldDismissRootScreen: Bool = false
     
-    private let overlayStatusBarView: RainbowBackgroundView = RainbowBackgroundView()
-    private var overlayStatusBarViewHeight: CGFloat {
-        return Self.calculateStatusBarHeight()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,10 +48,8 @@ final class {{ module_info.name }}NavigationController: UINavigationController {
             interactionController = UIPercentDrivenInteractiveTransition()
             let shouldDismiss = shouldDismissRootScreen && viewControllers.count == 1
             if shouldDismiss {
-                SoundPlayer.shared.playTransition()
                 dismiss(animated: true, completion: nil)
             } else {
-                SoundPlayer.shared.playTransition()
                 popViewController(animated: true)
             }
             
@@ -75,7 +68,7 @@ final class {{ module_info.name }}NavigationController: UINavigationController {
 }
 
 // MARK: - UINavigationControllerDelegate
-extension CustomNavigationController: UINavigationControllerDelegate {
+extension {{ module_info.name }}NavigationController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
