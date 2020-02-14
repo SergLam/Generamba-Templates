@@ -1,0 +1,15 @@
+# Template information section
+name: "z_core_location_rx"
+summary: "CLLocation manager service + RxCoreLocation for location status observing and more: https://github.com/RxSwiftCommunity/RxCoreLocation"
+author: "Sergey Lamcev"
+version: "0.1.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+# LocationManager
+- {name: LocationManager.swift,  path: z_core_location_rx/Code/LocationManager.swift.liquid}
+
+# The declarations for test files
+test_files:

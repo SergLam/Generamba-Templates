@@ -1,0 +1,105 @@
+{% include 'header' %}
+
+import CoreLocation
+import RxCoreLocation
+import RxSwift // pod 'RxCoreLocation', '~> 1.4.1'
+import UIKit
+
+protocol {{ module_info.name }}LocationManagerDelegate: class {
+    
+    func didLocationServicesDisabled()
+    func onPermissionDenied()
+    func onPermissionGranted()
+    
+    func didRecieveLocationUpdate(_ coordinate: CLLocationCoordinate2D)
+    func onSignificantUserLocationChange(_ newUserLocation: CLLocationCoordinate2D)
+}
+
+final class {{ module_info.name }}LocationManager: NSObject {
+    
+    weak var delegate: {{ module_info.name }}LocationManagerDelegate?
+    
+    private let locationManager: CLLocationManager = CLLocationManager()
+    
+    private var lastUserLocation: CLLocationCoordinate2D?
+    private var lastPointsUpdateLocation: CLLocationCoordinate2D?
+    
+    private let disposeBag: DisposeBag = DisposeBag()
+    
+    // MARK: - Life cycle
+    override init() {
+        super.init()
+        locationManager.delegate = self
+        setupAuthorizationObservation()
+    }
+    
+    // MARK: - Public functions
+    func checkUsersLocationServicesAuthorization() {
+        
+        guard CLLocationManager.locationServicesEnabled() else {
+            delegate?.didLocationServicesDisabled()
+            TechnicalNotificationsService.shared.postNotification(event: .locationDisabled)
+            return
+        }
+    }
+
+    // MARK: - Private functions
+    private func setupAuthorizationObservation() {
+        
+        locationManager.rx
+        .didChangeAuthorization
+            .subscribe(onNext: { [weak self] _, status in
+            switch status {
+            case .notDetermined:
+                self?.locationManager.requestWhenInUseAuthorization()
+                
+            case .restricted, .denied:
+                self?.delegate?.onPermissionDenied()
+                
+            case .authorizedAlways, .authorizedWhenInUse:
+                self?.delegate?.onPermissionGranted()
+                self?.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                self?.locationManager.startUpdatingLocation()
+                
+            @unknown default:
+                assertionFailure("Unknown Core location authorizationStatus")
+            }
+        })
+        .disposed(by: disposeBag)
+    }
+
+    private func checkLocationChange(_ coordinate: CLLocationCoordinate2D) {
+        
+        let maxKilometers: Double = 10.0
+        let radius: Double = maxKilometers * 1000
+        guard let lastLocation = lastPointsUpdateLocation else {
+            lastPointsUpdateLocation = coordinate
+            delegate?.onSignificantUserLocationChange(coordinate)
+            return
+        }
+        let distance = CLLocation.distance(lastLocation, coordinate)
+        if distance >= (radius * 1000) / 10 {
+            delegate?.onSignificantUserLocationChange(coordinate)
+            lastPointsUpdateLocation = coordinate
+        }
+    }
+    
+}
+
+// MARK: - CLLocationManagerDelegate
+extension {{ module_info.name }}LocationManager: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location: CLLocationCoordinate2D = manager.location?.coordinate else {
+            return
+        }
+        lastUserLocation = location
+        delegate?.didRecieveLocationUpdate(location)
+        checkLocationChange(location)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        assertionFailure("CLLocationManager \(error.localizedDescription)")
+    }
+    
+}
